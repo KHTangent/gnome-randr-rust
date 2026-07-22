@@ -37,8 +37,8 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
 
     // Open a proxy to the Mutter DisplayConfig
     let proxy = conn.with_proxy(
-        "org.gnome.Mutter.DisplayConfig",
-        "/org/gnome/Mutter/DisplayConfig",
+        "org.cinnamon.Muffin.DisplayConfig",
+        "/org/cinnamon/Muffin/DisplayConfig",
         Duration::from_millis(5000),
     );
 

@@ -226,7 +226,7 @@ impl arg::ReadAll for OrgGnomeMutterDisplayConfigMonitorsChanged {
 
 impl dbus::message::SignalArgs for OrgGnomeMutterDisplayConfigMonitorsChanged {
     const NAME: &'static str = "MonitorsChanged";
-    const INTERFACE: &'static str = "org.gnome.Mutter.DisplayConfig";
+    const INTERFACE: &'static str = "org.cinnamon.Muffin.DisplayConfig";
 }
 
 impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnomeMutterDisplayConfig
@@ -265,7 +265,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
         ),
         dbus::Error,
     > {
-        self.method_call("org.gnome.Mutter.DisplayConfig", "GetResources", ())
+        self.method_call("org.cinnamon.Muffin.DisplayConfig", "GetResources", ())
     }
 
     fn apply_configuration(
@@ -276,7 +276,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
         outputs: Vec<(u32, arg::PropMap)>,
     ) -> Result<(), dbus::Error> {
         self.method_call(
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "ApplyConfiguration",
             (serial, persistent, crtcs, outputs),
         )
@@ -284,7 +284,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
 
     fn change_backlight(&self, serial: u32, output: u32, value: i32) -> Result<i32, dbus::Error> {
         self.method_call(
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "ChangeBacklight",
             (serial, output, value),
         ).map(|r: (i32,)| r.0)
@@ -296,7 +296,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
         crtc: u32,
     ) -> Result<(Vec<u16>, Vec<u16>, Vec<u16>), dbus::Error> {
         self.method_call(
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "GetCrtcGamma",
             (serial, crtc),
         )
@@ -311,7 +311,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
         blue: Vec<u16>,
     ) -> Result<(), dbus::Error> {
         self.method_call(
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "SetCrtcGamma",
             (serial, crtc, red, green, blue),
         )
@@ -340,7 +340,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
         ),
         dbus::Error,
     > {
-        self.method_call("org.gnome.Mutter.DisplayConfig", "GetCurrentState", ())
+        self.method_call("org.cinnamon.Muffin.DisplayConfig", "GetCurrentState", ())
     }
 
     fn apply_monitors_config(
@@ -351,7 +351,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
         properties: arg::PropMap,
     ) -> Result<(), dbus::Error> {
         self.method_call(
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "ApplyMonitorsConfig",
             (serial, method, logical_monitors, properties),
         )
@@ -364,7 +364,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
         ctm: (u64, u64, u64, u64, u64, u64, u64, u64, u64),
     ) -> Result<(), dbus::Error> {
         self.method_call(
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "SetOutputCTM",
             (serial, output, ctm),
         )
@@ -373,7 +373,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
     fn power_save_mode(&self) -> Result<i32, dbus::Error> {
         <Self as blocking::stdintf::org_freedesktop_dbus::Properties>::get(
             self,
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "PowerSaveMode",
         )
     }
@@ -381,7 +381,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
     fn panel_orientation_managed(&self) -> Result<bool, dbus::Error> {
         <Self as blocking::stdintf::org_freedesktop_dbus::Properties>::get(
             self,
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "PanelOrientationManaged",
         )
     }
@@ -389,7 +389,7 @@ impl<'a, T: blocking::BlockingSender, C: ::std::ops::Deref<Target = T>> OrgGnome
     fn set_power_save_mode(&self, value: i32) -> Result<(), dbus::Error> {
         <Self as blocking::stdintf::org_freedesktop_dbus::Properties>::set(
             self,
-            "org.gnome.Mutter.DisplayConfig",
+            "org.cinnamon.Muffin.DisplayConfig",
             "PowerSaveMode",
             value,
         )
